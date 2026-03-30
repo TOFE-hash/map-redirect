@@ -1,21 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Redirecting...</title>
-<script>
-var ua = navigator.userAgent || navigator.vendor || window.opera;
-
-if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-    window.location.href = "https://maps.apple.com/?ll=42.863714,-79.065498&q=Your+Location";
-} else if (/android/i.test(ua)) {
-    window.location.href = "https://maps.google.com/?q=42.863714,-79.065498";
-} else {
-    window.location.href = "https://maps.google.com/?q=42.863714,-79.065498";
-}
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Map</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 480px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+      line-height: 1.5;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    p {
+      margin-bottom: 24px;
+    }
+    a.button {
+      display: block;
+      margin: 12px 0;
+      padding: 14px 18px;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-Redirecting...
+  <h1>Open this location</h1>
+  <p>Choose which map app you want to use.</p>
+
+  <a class="button" href="https://maps.apple.com/?ll=42.863714,-79.065498&q=Location">Open in Apple Maps</a>
+
+  <a class="button" href="https://www.google.com/maps?q=42.863714,-79.065498">Open in Google Maps</a>
+
+  <a class="button" href="https://www.openstreetmap.org/?mlat=42.863714&mlon=-79.065498#map=19/42.863714/-79.065498">Open in Browser Map</a>
 </body>
 </html>
