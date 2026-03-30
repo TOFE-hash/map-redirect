@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Redirecting...</title>
+<script>
+var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+    window.location.href = "https://maps.apple.com/?ll=42.863714,-79.065498&q=Your+Location";
+} else if (/android/i.test(ua)) {
+    window.location.href = "https://maps.google.com/?q=42.863714,-79.065498";
+} else {
+    window.location.href = "https://maps.google.com/?q=42.863714,-79.065498";
+}
+</script>
+</head>
+<body>
+Redirecting...
+</body>
+</html>
