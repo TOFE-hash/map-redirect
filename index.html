@@ -5,41 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open Map</title>
   <style>
+    :root {
+      --border: #d9d9d9;
+      --text: #1f1f1f;
+      --muted: #666;
+      --bg: #ffffff;
+      --button-bg: #f7f7f7;
+      --button-hover: #eeeeee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 480px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 460px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 22px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
       text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 16px;
       line-height: 1.5;
     }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-    p {
-      margin-bottom: 24px;
-    }
-    a.button {
+
+    .button {
       display: block;
-      margin: 12px 0;
-      padding: 14px 18px;
+      width: 100%;
       text-decoration: none;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      color: #000;
-      font-weight: bold;
+      color: var(--text);
+      background: var(--button-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 15px 16px;
+      margin: 12px 0;
+      font-size: 17px;
+      font-weight: 700;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+
+    .button:hover {
+      background: var(--button-hover);
+    }
+
+    .button:active {
+      transform: translateY(1px);
+    }
+
+    .small {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <h1>Open this location</h1>
-  <p>Choose which map app you want to use.</p>
+  <div class="card">
+    <h1>Open this location</h1>
+    <p>Choose which map app you want to use.</p>
 
-  <a class="button" href="https://maps.apple.com/?ll=42.863714,-79.065498&q=Location">Open in Apple Maps</a>
+    <a class="button" href="https://maps.apple.com/?ll=42.863714,-79.065498&q=Location">
+      Open in Apple Maps
+    </a>
 
-  <a class="button" href="https://www.google.com/maps?q=42.863714,-79.065498">Open in Google Maps</a>
+    <a class="button" href="https://www.google.com/maps?q=42.863714,-79.065498">
+      Open in Google Maps
+    </a>
 
-  <a class="button" href="https://www.openstreetmap.org/?mlat=42.863714&mlon=-79.065498#map=19/42.863714/-79.065498">Open in Browser Map</a>
+    <a class="button" href="https://www.openstreetmap.org/?mlat=42.863714&mlon=-79.065498#map=19/42.863714/-79.065498">
+      Open in Browser Map
+    </a>
+
+    <div class="small">
+      If one option does not open, come back and try another.
+    </div>
+  </div>
 </body>
 </html>
