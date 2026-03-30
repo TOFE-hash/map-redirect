@@ -41,14 +41,12 @@
     h1 {
       margin: 0 0 10px;
       font-size: 28px;
-      line-height: 1.2;
     }
 
     p {
       margin: 0 0 22px;
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.5;
     }
 
     .button {
@@ -63,12 +61,12 @@
       margin: 12px 0;
       font-size: 17px;
       font-weight: 700;
-      transition: background 0.15s ease, transform 0.05s ease;
-      cursor: pointer;
+      transition: background 0.15s ease;
     }
 
-    .button:hover { background: var(--button-hover); }
-    .button:active { transform: translateY(1px); }
+    .button:hover {
+      background: var(--button-hover);
+    }
 
     .small {
       margin-top: 18px;
@@ -82,53 +80,21 @@
     <h1>Open this location</h1>
     <p>Choose which map app you want to use.</p>
 
-    <a class="button" id="appleBtn" href="#">
+    <!-- Apple Maps -->
+    <a class="button"
+       href="http://maps.apple.com/?ll=42.863714,-79.065498&q=Location">
       Open in Apple Maps
     </a>
 
-    <a class="button" id="googleBtn" href="#">
+    <!-- Google Maps (browser → app if installed) -->
+    <a class="button"
+       href="https://www.google.com/maps?q=42.863714,-79.065498">
       Open in Google Maps
     </a>
 
-    <a class="button" id="browserBtn"
-       href="https://www.google.com/maps?q=42.863714,-79.065498">
-      Open in Browser Map
-    </a>
-
     <div class="small">
-      If one option does not open, come back and try another.
+      If one option does not open, try the other.
     </div>
   </div>
-
-  <script>
-    const lat = "42.863714";
-    const lng = "-79.065498";
-    const label = "Location";
-
-    const ua = navigator.userAgent || navigator.vendor || window.opera;
-    const isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
-    const isAndroid = /android/i.test(ua);
-
-    // Apple Maps
-    document.getElementById("appleBtn").href =
-      `http://maps.apple.com/?ll=${lat},${lng}&q=${encodeURIComponent(label)}`;
-
-    // Google Maps app
-    const googleBtn = document.getElementById("googleBtn");
-
-    if (isIOS) {
-      // Opens Google Maps app on iPhone if installed
-      googleBtn.href =
-        `comgooglemaps://?center=${lat},${lng}&q=${encodeURIComponent(label)}`;
-    } else if (isAndroid) {
-      // Opens Google Maps app on Android
-      googleBtn.href =
-        `intent://maps.google.com/?q=${lat},${lng}#Intent;scheme=https;package=com.google.android.apps.maps;end`;
-    } else {
-      // Desktop / fallback
-      googleBtn.href =
-        `https://www.google.com/maps?q=${lat},${lng}`;
-    }
-  </script>
 </body>
 </html>
